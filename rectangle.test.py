@@ -28,9 +28,9 @@ class TestBook(unittest.TestCase):
         print("Running tearDown method...")
 
     def test_computed_area(self):
-        print("Running test_reading_time...")
+        print("Running test_computed_area...")
         for i in range(self.tests_num):
-            self.assertEquals(
+            self.assertEqual(
                 self.rectangles[i].compute_area(), self.rectangle_computed_areas[i]
             )
 
