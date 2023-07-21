@@ -6,9 +6,11 @@ import unittest
 class TestBook(unittest.TestCase):
     def setUp(self):
         print("\nRunning setUp method...")
-        self.tests_num = 0
+        self.tests_num = 13
         self.rectangles: List[Rectangle] = [
+            Rectangle(width=-3, height=-5),
             Rectangle(width=-3, height=-3),
+            Rectangle(width=-3, height=-1),
             Rectangle(width=-5, height=0),
             Rectangle(width=-7, height=3),
             Rectangle(width=0, height=-5),
@@ -16,9 +18,11 @@ class TestBook(unittest.TestCase):
             Rectangle(width=0, height=5),
             Rectangle(width=3, height=-7),
             Rectangle(width=5, height=0),
-            Rectangle(width=7, height=8),
+            Rectangle(width=6, height=4),
+            Rectangle(width=7, height=7),
+            Rectangle(width=5, height=8),
         ]
-        self.rectangle_computed_areas: List[LENGTH_TYPE] = [0, 0, 0, 0, 0, 0, 0, 0, 49]
+        self.rectangle_computed_areas: List[LENGTH_TYPE] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 49, 40]
 
     def tearDown(self):
         print("Running tearDown method...")
