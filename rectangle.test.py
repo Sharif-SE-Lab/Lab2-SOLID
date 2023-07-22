@@ -1,6 +1,6 @@
 from random import randint
 from typing import Dict, List
-from rectangle import LENGTH_TYPE, Rectangle
+from rectangle import LENGTH_TYPE, InvalidLengthException, Rectangle
 import unittest
 
 
@@ -27,6 +27,21 @@ class TestBook(unittest.TestCase):
             {"width": 7, "height": 7},
             {"width": 5, "height": 8},
         ]
+        self.rectangle_exceptions = [
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            InvalidLengthException,
+            None,
+            None,
+            None,
+        ]
         self.rectangle_computed_areas: List[LENGTH_TYPE] = [
             0,
             0,
@@ -47,34 +62,45 @@ class TestBook(unittest.TestCase):
             for i in range(self.tests_num)
         ]
 
-    @property
-    def rectangles(self) -> List[Rectangle]:
-        return [Rectangle(**rectangle_case) for rectangle_case in self.rectangle_cases]
-
     def tearDown(self):
         print("Running tearDown method...")
 
+    def test_length_validation(self):
+        for i in range(self.tests_num):
+            if self.rectangle_exceptions[i] is not None:
+                self.assertRaises(
+                    InvalidLengthException, lambda: Rectangle(**self.rectangle_cases[i])
+                )
+            else:
+                Rectangle(**self.rectangle_cases[i])
+
     def test_computed_area(self):
         print("Running test_computed_area...")
-        rectangles = self.rectangles
         for i in range(self.tests_num):
-            self.assertEqual(
-                rectangles[i].compute_area(), self.rectangle_computed_areas[i]
-            )
+            if self.rectangle_exceptions[i] is None:
+                rectangle = Rectangle(**self.rectangle_cases[i])
+                self.assertEqual(
+                    rectangle.compute_area(), self.rectangle_computed_areas[i]
+                )
 
     def test_set_get_width_height(self):
         print("Running test_set_get_width_height...")
-        rectangles = self.rectangles
         for i in range(self.tests_num):
-            i_next_case = self.rectangle_cases[self.random_set_gets[i]]
-            i_next_expected_computed_area = self.rectangle_computed_areas[
-                self.random_set_gets[i]
-            ]
-            rectangles[i].width = i_next_case["width"]
-            rectangles[i].height = i_next_case["height"]
-            self.assertEqual(
-                rectangles[i].compute_area(), i_next_expected_computed_area
-            )
+            if self.rectangle_exceptions[i] is None:
+                rectangle = Rectangle(**self.rectangle_cases[i])
+                next_i = self.random_set_gets[i]
+                next_i_case = self.rectangle_cases[next_i]
+
+                def next_case_assign():
+                    rectangle.width = next_i_case["width"]
+                    rectangle.height = next_i_case["height"]
+
+                if self.rectangle_exceptions[next_i] is None:
+                    next_case_assign()
+                    next_i_computed_area = self.rectangle_computed_areas[next_i]
+                    self.assertEqual(rectangle.compute_area(), next_i_computed_area)
+                else:
+                    self.assertRaises(InvalidLengthException, next_case_assign)
 
 
 if __name__ == "__main__":

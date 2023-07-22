@@ -1,6 +1,10 @@
 LENGTH_TYPE = float
 
 
+class InvalidLengthException(Exception):
+    pass
+
+
 class Rectangle:
     def __init__(self, width: LENGTH_TYPE, height: LENGTH_TYPE):
         self.__width = width
