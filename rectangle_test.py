@@ -115,5 +115,11 @@ class TestRectangle(unittest.TestCase):
                 )
 
 
+def test_class(cls: object):
+    file_name = sys.modules[cls.__module__].__file__
+    class_name = cls.__name__
+    unittest.main(argv=[file_name, class_name])
+
+
 if __name__ == "__main__":
-    unittest.main(argv=['rectangle_test.py', 'TestRectangle'])
+    test_class(TestRectangle)
