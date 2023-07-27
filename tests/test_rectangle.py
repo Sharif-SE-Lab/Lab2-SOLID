@@ -4,8 +4,8 @@ from random import randint
 from typing import Dict, List, Optional
 
 from intrerfaces.rectangle import RectangleInterfaceForTest
-from src.rectangle import LENGTH_TYPE, InvalidLengthException
-
+from intrerfaces.shape import InvalidLengthException
+from src.rectangle import LENGTH_TYPE
 
 
 class RectangleTestCase(ABC):
@@ -101,9 +101,6 @@ class TestRectangle(unittest.TestCase):
             self.generate_random_index(max_num=self.tests_num - 1)
             for i in range(self.tests_num)
         ]
-
-    def tearDown(self):
-        print("Running tearDown method...")
 
     def test_length_validation(self):
         for i in range(self.tests_num):
