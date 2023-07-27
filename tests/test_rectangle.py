@@ -3,8 +3,8 @@ from abc import abstractmethod, ABC
 from random import randint
 from typing import Dict, List, Optional
 
-from intrerfaces.rectangle import RectangleInterfaceForTest
-from intrerfaces.shape import InvalidLengthException
+from interfaces.rectangle import RectangleInterfaceForTest
+from interfaces.shape import InvalidLengthException
 from src.rectangle import LENGTH_TYPE
 
 

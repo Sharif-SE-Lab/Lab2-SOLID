@@ -1,7 +1,7 @@
 import interface
 
-from intrerfaces.rectangle import RectangleInterfaceForTest
-from intrerfaces.shape import LENGTH_TYPE, Shape, validate_length
+from interfaces.rectangle import RectangleInterfaceForTest
+from interfaces.shape import LENGTH_TYPE, Shape, validate_length
 
 
 class Rectangle(interface.implements(Shape, RectangleInterfaceForTest)):

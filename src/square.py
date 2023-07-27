@@ -1,7 +1,7 @@
 import interface
 
-from intrerfaces.shape import Shape, LENGTH_TYPE, validate_length
-from intrerfaces.square import SquareInterfaceForTest
+from interfaces.shape import Shape, LENGTH_TYPE, validate_length
+from interfaces.square import SquareInterfaceForTest
 
 
 class Square(interface.implements(Shape, SquareInterfaceForTest)):

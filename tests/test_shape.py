@@ -3,7 +3,7 @@ from typing import List
 
 import interface
 
-from intrerfaces.shape import Shape
+from interfaces.shape import Shape
 
 
 class TestableShapeInterface(interface.Interface):

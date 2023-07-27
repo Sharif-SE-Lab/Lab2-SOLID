@@ -1,4 +1,4 @@
-from intrerfaces.shape import Shape, LENGTH_TYPE
+from interfaces.shape import Shape, LENGTH_TYPE
 
 
 class RectangleInterfaceForTest(Shape):

@@ -1,7 +1,7 @@
 import unittest
 
-from intrerfaces.shape import LENGTH_TYPE, InvalidLengthException
-from intrerfaces.square import SquareInterfaceForTest
+from interfaces.shape import LENGTH_TYPE, InvalidLengthException
+from interfaces.square import SquareInterfaceForTest
 
 
 class TestSquare(unittest.TestCase):
