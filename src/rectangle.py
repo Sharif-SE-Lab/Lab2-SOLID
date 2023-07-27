@@ -1,11 +1,13 @@
-LENGTH_TYPE = float
+import interface
+
+from intrerfaces.rectangle import RectangleInterfaceForTest, LENGTH_TYPE
 
 
 class InvalidLengthException(Exception):
     pass
 
 
-class Rectangle:
+class Rectangle(interface.implements(RectangleInterfaceForTest)):
     def __init__(self, width: LENGTH_TYPE, height: LENGTH_TYPE):
         self.width = width
         self.height = height
