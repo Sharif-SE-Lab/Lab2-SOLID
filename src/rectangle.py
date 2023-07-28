@@ -6,7 +6,6 @@ from interfaces.shape import LENGTH_TYPE, Shape, validate_length
 
 class Rectangle(interface.implements(Shape, RectangleInterfaceForTest)):
     def __init__(self, width: LENGTH_TYPE, height: LENGTH_TYPE):
-        self._width, self._height = None, None
         self.width = width
         self.height = height
 
@@ -14,7 +13,7 @@ class Rectangle(interface.implements(Shape, RectangleInterfaceForTest)):
         return self.width * self.height
 
     @property
-    def width(self):
+    def width(self) -> LENGTH_TYPE:
         return self._width
 
     @width.setter
@@ -23,7 +22,7 @@ class Rectangle(interface.implements(Shape, RectangleInterfaceForTest)):
         self._width = value
 
     @property
-    def height(self):
+    def height(self) -> LENGTH_TYPE:
         return self._height
 
     @height.setter

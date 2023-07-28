@@ -8,3 +8,19 @@ class RectangleInterfaceForTest(Shape):
     def compute_area(self) -> LENGTH_TYPE:
         pass
 
+    @property
+    def width(self) -> LENGTH_TYPE:
+        pass
+
+    @width.setter
+    def width(self, value: LENGTH_TYPE):
+        pass
+
+    @property
+    def height(self) -> LENGTH_TYPE:
+        pass
+
+    @height.setter
+    def height(self, value: LENGTH_TYPE):
+        pass
+
