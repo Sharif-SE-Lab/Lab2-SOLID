@@ -6,8 +6,8 @@ from interfaces.shape import LENGTH_TYPE, Shape, validate_length
 
 class Rectangle(interface.implements(Shape, RectangleInterfaceForTest)):
     def __init__(self, width: LENGTH_TYPE, height: LENGTH_TYPE):
-        self.width = width
-        self.height = height
+        self._width = width
+        self._height = height
 
     def compute_area(self) -> LENGTH_TYPE:
         return self.width * self.height

@@ -7,7 +7,7 @@ from interfaces.square import SquareInterfaceForTest
 class Square(interface.implements(Shape, SquareInterfaceForTest)):
 
     def __init__(self, side: LENGTH_TYPE):
-        self.side = side
+        self._side = side
 
     def compute_area(self) -> LENGTH_TYPE:
         return self.side ** 2
